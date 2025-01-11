@@ -6,9 +6,51 @@
         xmlns:local="clr-namespace:FirstProject1"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style x:Key="testStyle">
+            <Setter Property="Label.Background">
+                <Setter.Value>
+                    <!--<Label.Background>-->
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.3">
+                        <GradientStop Color="#FF93AB8A"/>
+                        <GradientStop Color="#FFCCFBBB" Offset="1"/>
+                        <GradientStop Color="#FFF3EE78" Offset="0.51"/>
+                    </LinearGradientBrush>
+                    <!--</Label.Background>-->
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="677,49,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-        <Label x:Name="MyLabel" Content="내가 만든 라벨" HorizontalAlignment="Left" Margin="677,199,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnTest1" Content="Button" Margin="72,76,30,0" VerticalAlignment="Top" Click="Button_Click" HorizontalAlignment="Right"/>
+        <Label x:Name="labelTest1" Content="내가 만든 라벨" HorizontalAlignment="Left" Margin="72,31,0,0" VerticalAlignment="Top" Style="{StaticResource testStyle}"/>
+        <CheckBox x:Name="CheckBox1" Content="나의체크박스" HorizontalAlignment="Left" Margin="72,121,0,0" VerticalAlignment="Top" IsChecked="False"/>
+        <RadioButton Content="RadioButton" HorizontalAlignment="Left" Margin="72,165,0,0" VerticalAlignment="Top" GroupName="MyGroup"/>
+        <RadioButton Content="RadioButton" HorizontalAlignment="Left" Margin="72,185,0,0" VerticalAlignment="Top" GroupName="MyGroup"/>
+        <RadioButton Content="RadioButton" HorizontalAlignment="Left" Margin="72,205,0,0" VerticalAlignment="Top" GroupName="MyGroup"/>
+        <TextBox x:Name="TextBox1" HorizontalAlignment="Left" Margin="72,237,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" />
+        <PasswordBox HorizontalAlignment="Left" Margin="72,272,0,0" VerticalAlignment="Top" Width="120"/>
+        <ListView x:Name="ListView1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="230,32,86,211" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="이미지" Width="300">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <Image Width="auto" Height="auto" Source="{Binding UserImg}"/>
+                                    <Button Height="20"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="이름" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="나이" DisplayMemberBinding="{Binding UserAge}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label HorizontalAlignment="Left" Margin="88,86,0,0" VerticalAlignment="Top" Style="{StaticResource testStyle}">
+            <Label Content="Label" Height="19" Width="47"/>
+        </Label>
 
     </Grid>
 </Window>

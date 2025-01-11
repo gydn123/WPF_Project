@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using FirstProject1.Models;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,12 +20,31 @@ namespace FirstProject1
         public MainWindow()
         {
             InitializeComponent();
-            MessageBox.Show("알림 띄우기");
+            //MessageBox.Show("알림 띄우기");
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MyLabel.Content = "내용 변경";
+            List<User> myList1 = new List<User>();
+
+            labelTest1.Content = "내용 변경";
+            //MessageBox.Show(TextBox1.Text + "");
+            User userA = new User();
+            userA.UserImg = @"E:\\CsharpPractice\\FirstProject1\\FirstProject1\\Resources\\photo1.jpg";
+            userA.Name = "Noah";
+            userA.UserAge = 15;
+
+            User userB = new User();
+            userB.UserImg = @"E:\CsharpPractice\FirstProject1\FirstProject1\Resources\1724339909.gif";
+            userB.Name = "Liam";
+            userB.UserAge = 20;
+
+            myList1.Add(userA);
+            myList1.Add(userB);
+
+            ListView1.ItemsSource = myList1;
+
         }
+
     }
 }
