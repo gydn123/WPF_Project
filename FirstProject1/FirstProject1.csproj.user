@@ -7,7 +7,27 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="MainWindow.xaml">
+    <Compile Update="UserControls\MyLabel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControls\ThreeControls.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SecondView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\MyLabel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\ThreeControls.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\SecondView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

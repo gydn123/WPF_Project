@@ -1,4 +1,5 @@
 ﻿using FirstProject1.Models;
+using FirstProject1.ViewModels;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,10 +18,15 @@ namespace FirstProject1
     /// </summary>
     public partial class MainWindow : Window
     {
+        MainViewModel mainViewModel;
+
         public MainWindow()
         {
             InitializeComponent();
             //MessageBox.Show("알림 띄우기");
+            mainViewModel = new MainViewModel();
+            mainViewModel.ProgressValue = 30;
+            DataContext = mainViewModel;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -43,6 +49,7 @@ namespace FirstProject1
             myList1.Add(userB);
 
             ListView1.ItemsSource = myList1;
+            mainViewModel.ProgressValue = 100;
 
         }
 
